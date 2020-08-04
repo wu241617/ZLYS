@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>智联御守后台管理界面</title>
+		<link rel="stylesheet" href="css/Dataanaly.css" />
+		<script src="js/flexible.js"></script>
+		<script type="text/javascript" src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=78uSF0RUWQH7q71s8ZTvo1jtdZ48W8uD"></script>
+	</head>
+	<body>
+		<header>
+			<h1>智联御守数据分析平台</h1>
+			<div id="showLogo"></div>
+			<div id="showTime"></div>
+			<script type="text/javascript">
+				var t = null;
+				t = setTimeout(time, 1000); //開始运行
+				function time() {
+					clearTimeout(t); //清除定时器
+					dt = new Date();
+					var y = dt.getFullYear();
+					var mt = dt.getMonth() + 1;
+					var day = dt.getDate();
+					var h = dt.getHours(); //获取时
+					var m = dt.getMinutes(); //获取分
+					var s = dt.getSeconds(); //获取秒
+					document.querySelector("#showTime").innerHTML =
+						"当前时间：" + y + "年" + mt + "月" + day + "日 " + h + "时" + m + "分" + s + "秒";
+					t = setTimeout(time, 1000); //设定定时器，循环运行
+				}
+			</script>
+		</header>
+		<section id="mainBox">
+			<div class="box">
+				<div class="panel bar">
+					<h2>每周访客记录表</h2>
+					<div class="chart"></div>
+					<div class="panel-footer"></div>
+
+				</div>
+				<div class="panel line">
+					<h2>社区事故记录统计图
+						<a href="javacript:;">2020</a>
+						<a href="javacript:;">2019</a>
+					</h2>
+					<div class="chart">图表</div>
+					<div class="panel-footer"></div>
+
+				</div>
+				<div class="panel pie">
+					<h2>年龄分布图</h2>
+					<div class="chart">图表</div>
+					<div class="panel-footer"></div>
+
+				</div>
+			</div>
+			<div class="box">
+				<!-- 中间模块制作 -->
+				<div class="no">
+					<div class="no-hd">
+						<ul>
+							<li>1484</li>
+							<li>1555</li>
+						</ul>
+					</div>
+					<div class="no-bd">
+						<ul>
+							<li>今日进入人数</li>
+							<li>今日出门人数</li>
+						</ul>
+					</div>
+				</div>
+				<div class="map">
+					<!-- 地图模块 -->
+					<div class="map1"></div>
+					<div class="map2"></div>
+					<div class="map3"></div>
+					<div class="chart"></div>
+				</div>
+			</div>
+			<div class="box">
+				<!-- 右侧盒子 -->
+				<div class="panel bar2">
+					<h2>当季危害发生概率图</h2>
+					<div class="chart">图表</div>
+					<div class="panel-footer"></div>
+				</div>
+				<div class="panel line2">
+					<h2>室内检测表</h2>
+					<div class="chart">图表</div>
+					<div class="panel-footer"></div>
+				</div>
+				<div class="panel pie2">
+					<h2>人口户籍分布</h2>
+					<div class="chart">图表</div>
+					<div class="panel-footer"></div>
+				</div>
+			</div>
+		</section>
+		<script src="js/echarts.min.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="js/china.js"></script>
+		<script src="js/mymap.js"></script>
+		<script type="text/javascript">
+				    // GL版命名空间为BMapGL
+				    // 按住鼠标右键，修改倾斜角和角度
+					var map = new BMapGL.Map(document.querySelector(".map .chart"));    // 创建Map实例
+					map.centerAndZoom(new BMapGL.Point(114.34378,30.380097), 19);  // 初始化地图,设置中心点坐标和地图级别
+					map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+					map.setHeading(64.5);
+					map.setTilt(73);
+				</script> 
+		<script src="js/index.js" ></script>
+	</body>
+</html>

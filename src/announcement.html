@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>公告管理</title>
+		<link rel="stylesheet" href="css/pintuer.css">
+		<link rel="stylesheet" href="css/admin.css">
+		<link rel="stylesheet" href="css/main.css">
+		<script src="js/jquery.js"></script>
+	</head>
+	<form method="post" action="">
+		<div class="main-wrap">
+			<div class="crumb-wrap">
+			    <div class="crumb-list"><i class="icon-font"></i><a href="index_Man.html">首页</a>
+				<span class="crumb-step">&gt;</span><span class="crumb-name"><a href="warning.html">警报管理</a></span>
+				<span class="crumb-step">&gt;</span><span class="crumb-name">认证管理</span></div>
+			</div>
+		</div>
+	  <div class="panel admin-panel">
+<!-- 	    <div class="panel-head"><strong class="icon-reorder"> 公告管理</strong></div> -->
+	    <div class="padding border-bottom">
+	      <ul class="search">
+	        <li>
+	          <button type="button"  class="button border-green" id="checkall"><span class="icon-check"></span> 全选</button>
+	          <button type="submit" class="button border-red"><span class="icon-trash-o"></span> 批量删除</button>
+	        </li>
+	      </ul>
+	    </div>
+	    <table class="table table-hover text-center">
+	      <tr>
+	        <th width="120">ID</th>
+	        <th>姓名</th>       
+	        <th>电话</th>
+	        <th>邮箱</th>
+	        <th>其他</th>
+	        <th width="25%">内容</th>
+	         <th width="120">留言时间</th>
+	        <th>操作</th>       
+	      </tr>      
+	        <tr>
+	          <td><input type="checkbox" name="id[]" value="1" />
+	            1</td>
+	          <td>二哈</td>
+	          <td>13420925611</td>
+	          <td>618221875@qq.com</td>  
+	           <td>住户1</td>         
+	          <td>最近社区的治安越来越好，智联御守的软件真的好用！</td>
+	          <td>2016-07-01</td>
+	          <td><div class="button-group"> <a class="button border-red" href="javascript:void(0)" onclick="return del(1)"><span class="icon-trash-o"></span> 删除</a> </div></td>
+	        </tr>
+	        <tr>
+	          <td><input type="checkbox" name="id[]" value="1" />
+	            2</td>
+	          <td>张三</td>
+	          <td>15545156545</td>
+	          <td>185762948@qq.com</td>  
+	           <td>住户2</td>         
+	          <td>社区的成员之间的氛围和以前相比变了许多，因此感觉生活越来越快了。每年过节都要回来过。</td>
+	          <td>2017-08-08</td>
+	          <td><div class="button-group"> <a class="button border-red" href="javascript:void(0)" onclick="return del(1)"><span class="icon-trash-o"></span> 删除</a> </div></td>
+	        </tr>
+
+
+	      <tr>
+	        <td colspan="8"><div class="pagelist"> <a href="">上一页</a> <span class="current">1</span><a href="">2</a><a href="">3</a><a href="">下一页</a><a href="">尾页</a> </div></td>
+	      </tr>
+	    </table>
+	  </div>
+	</form>
+	<script type="text/javascript">
+	
+	function del(id){
+		if(confirm("您确定要删除吗?")){
+			
+		}
+	}
+	
+	$("#checkall").click(function(){ 
+	  $("input[name='id[]']").each(function(){
+		  if (this.checked) {
+			  this.checked = false;
+		  }
+		  else {
+			  this.checked = true;
+		  }
+	  });
+	})
+	
+	function DelSelect(){
+		var Checkbox=false;
+		 $("input[name='id[]']").each(function(){
+		  if (this.checked==true) {		
+			Checkbox=true;	
+		  }
+		});
+		if (Checkbox){
+			var t=confirm("您确认要删除选中的内容吗？");
+			if (t==false) return false; 		
+		}
+		else{
+			alert("请选择您要删除的内容!");
+			return false;
+		}
+	}
+	
+	</script>
+	</body>
+</html>

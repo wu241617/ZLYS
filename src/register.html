@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>注册表单</title>
+	<link href="css/admin_login.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<p>
+			<span id="closeIcon" title="Close The Page">&times;</span>
+		</p>
+		<div class="float">
+			<h1>用户注册界面</h1>
+			<hr>
+			<label>用户名</label>
+			<input type="text" placeholder="Enter Account" title="请添加此字段.">
+			<label>密码</label>
+			<input type="password" placeholder="Enter Password" title="请添加此字段.">
+			<label>确认密码</label>
+			<input type="password" placeholder="Repeat Password" title="请添加此字段.">
+			<input type="checkbox" checked="checked" id="checkbox"><span class="checkbox">Remember me</span>
+			<div id="area"></div>
+			<b>By creating an account you agree to our <a href="#">Terms & Privacy.</a></b>
+			<button class="closeBtn">取消</button>
+			<button>登录</button>
+		</div>
+		
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var cloBtn = $('#closeIcon');
+				cloBtn.click(function(){
+					window.open('index.html','_self')
+				})
+				var btns = $('button');
+				btns.click(function(){
+					window.open('index.html','_self')
+				})
+				
+			})
+		</script>
+	</body>
+</html>

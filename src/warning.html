@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+			<link rel="stylesheet" type="text/css" href="css/common.css"/>
+	</head>
+	<body>
+		<div class="main-wrap">
+		    <div class="crumb-wrap">
+		        <div class="crumb-list"><i class="icon-font"></i><a href="index_Man.html">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">警报管理</span></div>
+		    </div>
+		    <div class="search-wrap">
+		        <div class="search-content">
+		            <form action="#" method="post">
+		                <table class="search-tab">
+		                    <tr>
+		                        <th width="120">选择分类:</th>
+		                        <td>
+		                            <select name="search-sort" id="">
+		                                <option value="">全部</option>
+		                                <option value="19">风险预警</option><option value="20">日常投诉</option>
+		                            </select>
+		                        </td>
+		                        <th width="70">关键字:</th>
+		                        <td><input class="common-text" placeholder="关键字" name="keywords" value="" id="" type="text"></td>
+		                        <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
+		                    </tr>
+		                </table>
+		            </form>
+		        </div>
+		    </div>
+		    <div class="result-wrap">
+		        <form name="myform" id="myform" method="post">
+		            <div class="result-title">
+		                <div class="result-list">
+		                    <a href="warning_insert.html"><i class="icon-font"></i>新增预警</a>
+		                    <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
+		                    <a id="updateOrd" href="identity.html"><i class="icon-font"></i>认证管理</a>
+		                </div>
+		            </div>
+		            <div class="result-content">
+		                <table class="result-tab" width="100%">
+		                    <tr>
+		                        <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
+		                        <th>排序</th>
+		                        <th>ID</th>
+		                        <th>预警</th>
+		                        <th>审核状态</th>
+		                        <th>点击</th>
+		                        <th>发布人</th>
+		                        <th>更新时间</th>
+		                        <th>评论</th>
+		                        <th>操作</th>
+		                    </tr>
+		                    
+		                    <tr>
+		                        <td class="tc"><input name="id[]" value="59" type="checkbox"></td>
+		                        <td>
+		                            <input name="ids[]" value="59" type="hidden">
+		                            <input class="common-input sort-input" name="ord[]" value="0" type="text">
+		                        </td>
+		                        <td>59</td>
+		                        <td title=""><a target="_blank" href="#" title="">地面预警</a> …
+		                        </td>
+		                        <td>0</td>
+		                        <td>2</td>
+		                        <td>admin</td>
+		                        <td>2020-05-03 21:11:01</td>
+		                        <td></td>
+		                        <td>
+		                            <a class="link-update" href="#">修改</a>
+		                            <a class="link-del" href="#">删除</a>
+		                        </td>
+		                    </tr>
+		                    <tr>
+		                        <td class="tc"><input name="id[]" value="58" type="checkbox"></td>
+		                        <td>
+		                            <input name="ids[]" value="58" type="hidden">
+		                            <input class="common-input sort-input" name="ord[]" value="0" type="text">
+		                        </td>
+		                        <td>58</td>
+		                        <td title=""><a target="_blank" href="#" title="">高空坠物预警</a> …
+		                        </td>
+		                        <td>0</td>
+		                        <td>35</td>
+		                        <td>admin</td>
+		                        <td>2020-5-01 22:34:00</td>
+		                        <td></td>
+		                        <td>
+		                            <a class="link-update" href="#">修改</a>
+		                            <a class="link-del" href="#">删除</a>
+		                        </td>
+		                    </tr>
+		                     <tr>
+		                        <td class="tc"><input name="id[]" value="57" type="checkbox"></td>
+		                        <td>
+		                            <input name="ids[]" value="57" type="hidden">
+		                            <input class="common-input sort-input" name="ord[]" value="0" type="text">
+		                        </td>
+		                        <td>57</td>
+		                        <td title=""><a target="_blank" href="#" title="">地面塌陷预警</a> …
+		                        </td>
+		                        <td>0</td>
+		                        <td>8</td>
+		                        <td>admin</td>
+		                        <td>2020-04-29 13:11:01</td>
+		                        <td></td>
+		                        <td>
+		                            <a class="link-update" href="#">修改</a>
+		                            <a class="link-del" href="#">删除</a>
+		                        </td>
+		                    </tr>
+		                     <tr>
+		                        <td class="tc"><input name="id[]" value="56" type="checkbox"></td>
+		                        <td>
+		                            <input name="ids[]" value="56" type="hidden">
+		                            <input class="common-input sort-input" name="ord[]" value="0" type="text">
+		                        </td>
+		                        <td>56</td>
+		                        <td title=""><a target="_blank" href="#" title="">消防栓破裂</a> …
+		                        </td>
+		                        <td>0</td>
+		                        <td>5</td>
+		                        <td>admin</td>
+		                        <td>2020-04-26 21:11:01</td>
+		                        <td></td>
+		                        <td>
+		                            <a class="link-update" href="#">修改</a>
+		                            <a class="link-del" href="#">删除</a>
+		                        </td>
+		                    </tr>
+		                      <tr>
+		                        <td class="tc"><input name="id[]" value="55" type="checkbox"></td>
+		                        <td>
+		                            <input name="ids[]" value="55" type="hidden">
+		                            <input class="common-input sort-input" name="ord[]" value="0" type="text">
+		                        </td>
+		                        <td>55</td>
+		                        <td title=""><a target="_blank" href="#" title="">路灯警报</a> …
+		                        </td>
+		                        <td>0</td>
+		                        <td>10</td>
+		                        <td>admin</td>
+		                        <td>2020-04-18 21:11:01</td>
+		                        <td></td>
+		                        <td>
+		                            <a class="link-update" href="#">修改</a>
+		                            <a class="link-del" href="#">删除</a>
+		                        </td>
+		                    </tr>
+		                </table>
+		                <div class="list-page"> 1/23 页</div>
+		            </div>
+		        </form>
+		    </div>
+		</div>
+	</body>
+</html>
