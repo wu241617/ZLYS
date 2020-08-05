@@ -66,12 +66,12 @@
 		<hr>
 		<form action="Mananger.html" method="get" name="F_login">
 			<label>用户名：</label>
-			<input type="text" placeholder="Enter Email" title="请添加此字段." value="admin">
+			<input type="text" placeholder="Enter Email" title="请添加此字段."  name="username"><span id="name"></span>
 			<label>密码：</label>
-			<input type="password" placeholder="Enter Password" title="请添加此字段." value="123456">
+			<input type="password" placeholder="Enter Password" title="请添加此字段."  name="password"><span id="pwd"></span>
 			<div id="btn">
-				<input type="button" value="取消"  class="submit">
-				<input type="submit" tabindex="3" value="登录" class="btn btn-primary" class="submit"/>
+				<input type="button" value="重置"  class="submit" id="reset">
+				<input type="submit" tabindex="3" value="登录" class="btn btn-primary" class="submit" id="submit"/>
 			</div>
 
 		</form>
@@ -79,17 +79,76 @@
 	</div>
 	
 	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script src="js/layer/layer.js"></script>
 	<script type="text/javascript">
 		$(function(){
+			// username: admin ; password: 123456
+			// 关闭按钮操作
 			var cloBtn = $('#closeIcon');
 			cloBtn.click(function(){
 				window.open('index.html','_self')
 			})
-			var btns = $('.submit');
-			btns.click(function(){
-				window.open('index.html','_self')
+
+			// 用户名添加校验
+			var userName = $('[name="username"]');
+			var nameSpan = $('#name');
+			userName.blur(function(){
+				var val = userName.val();
+				if(val === ''){
+					nameSpan.html('* 用户名不能为空！');
+					nameSpan.css({'color':'red'});
+				}else{
+					if(val.length < 5 || val.length > 12 ){
+						nameSpan.html('* 用户名长度在 5-12 位之间！');
+						nameSpan.css({'color':'red'});
+					}else{
+						nameSpan.html('* 用户名输入成功！');
+						nameSpan.css({'color':'green'});
+					}
+				}
 			})
-			
+			// 密码校验
+			var passWord = $('[name="password"]');
+			var pwdSpan = $('#pwd');
+			passWord.blur(function(){
+					var val = passWord.val();
+					if(val === ''){
+						pwdSpan.html('* 密码不能为空！');
+						pwdSpan.css({'color':'red'});
+					}else{
+						if(val.length < 6 || val.length > 16){
+							pwdSpan.html('* 密码在 6-16 位之间！');
+							pwdSpan.css({'color':'red'});
+						}else{
+							pwdSpan.html('* 密码输入正确！');
+							pwdSpan.css({'color':'green'});
+						}
+					}
+				})
+			// 点击重置按钮后操作 
+			var reset = $('#reset');
+			reset.click(function(){
+				userName.val('');
+				nameSpan.html('');
+				passWord.val('');
+				pwdSpan.html('');
+			})
+			// 点击登录按钮后操作
+			var submit = $('#submit');
+			submit.click(function(e){
+				if(nameSpan.css('color') === 'rgb(0, 128, 0)' && pwdSpan.css('color') === 'rgb(0, 128, 0)'){
+					// 待写后端接口请求-------------------
+					
+				}else{
+					// 阻止表单默认提交
+					 e.preventDefault();
+					layer.alert('密码或账号输入错误！', {
+					    skin: 'layui-layer-lan'
+					    ,closeBtn: 0
+					    ,anim: 4 
+					  });    
+				}
+			})
 		})
 	</script>
 </body>

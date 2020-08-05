@@ -13,30 +13,129 @@
 			<h1>用户注册界面</h1>
 			<hr>
 			<label>用户名</label>
-			<input type="text" placeholder="Enter Account" title="请添加此字段.">
+			<input type="text" placeholder="Enter Account" title="请添加此字段." name="username"><span id="name"></span>
 			<label>密码</label>
-			<input type="password" placeholder="Enter Password" title="请添加此字段.">
+			<input type="password" placeholder="Enter Password" title="请添加此字段." name="password"><span id="pwd"></span>
 			<label>确认密码</label>
-			<input type="password" placeholder="Repeat Password" title="请添加此字段.">
-			<input type="checkbox" checked="checked" id="checkbox"><span class="checkbox">Remember me</span>
-			<div id="area"></div>
-			<b>By creating an account you agree to our <a href="#">Terms & Privacy.</a></b>
-			<button class="closeBtn">取消</button>
-			<button>登录</button>
+			<input type="password" placeholder="Repeat Password" title="请添加此字段." name="password1"><span id="pwd1"></span>
+			<label for="checkbox" style="cursor:pointer;display:flex;align-items:center;"><input type="checkbox" id="checkbox" name="checked"><b>By creating an account you agree to our <a href="#">Terms & Privacy.</a></b></label>
+			<span id="checkbox1"></span>
+		    <div>
+				<button id="reset" class="closeBtn">重置</button>
+				<button id="submit">提交</button>
+			</div>
+			
 		</div>
 		
 		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+		<script src="js/layer/layer.js"></script>
 		<script type="text/javascript">
 			$(function(){
+				// 关闭按钮点击事件
 				var cloBtn = $('#closeIcon');
 				cloBtn.click(function(){
 					window.open('index.html','_self')
 				})
-				var btns = $('button');
-				btns.click(function(){
-					window.open('index.html','_self')
+				// 复选框点击事件
+				var isChecked = $('[name="checked"]');
+				var checkSpan = $('#checkbox1');
+				isChecked.change(function(){
+					if($(this).prop('checked')){
+						checkSpan.html('* 已勾选！');
+						checkSpan.css({'color':'green'});
+					}else{
+						checkSpan.html('* 未勾选！');
+						checkSpan.css({'color':'red'});
+					}
 				})
-				
+				// 用户名，密码，重复密码，复选框校验
+				// 用户名校验
+				var name = $('[name="username"]');
+				var nameSpan = $('#name');
+				name.blur(function(){
+					var val = $(this).val();
+					if(val === ''){
+						nameSpan.html('* 用户名不能为空！');
+						nameSpan.css({'color':'red'});
+					}else{
+						if(val.length < 6 || val.length > 12){
+							nameSpan.html('* 请确保长度在 6-12 位之间！');
+							nameSpan.css({'color':'red'});
+						}else{
+							nameSpan.html('* 用户名输入正确！');
+							nameSpan.css({'color':'green'});
+						}
+					}
+				})
+				// 密码校验
+				var pwd = $('[name="password"]');
+				var pwdSpan = $('#pwd');
+				pwd.blur(function(){
+					var val = $(this).val();
+					if(val === ''){
+						pwdSpan.html('* 密码不能为空！');
+						pwdSpan.css({'color':'red'});
+					}else{
+						if(val.length < 6 || val.length > 16){
+							pwdSpan.html('* 请确保密码在 6-16 位之间！');
+							pwdSpan.css({'color':'red'});
+						}else{
+							pwdSpan.html('* 密码输入成功！');
+							pwdSpan.css({'color':'green'});
+						}
+					}
+				})
+				// 确认密码校验
+				var pwd1 = $('[name="password1"]');
+				var pwd1Span = $('#pwd1');
+				pwd1.blur(function(){
+					var val = $(this).val();
+					var val1 = $('[name="password"]').val();
+					if(val === ''){
+						pwd1Span.html('* 确认密码不能为空！');
+						pwd1Span.css({'color':'red'});
+					}else{
+						if(val1 !== val){
+							pwd1Span.html('* 请保证两次输入密码一致！');
+							pwd1Span.css({'color':'red'});
+						}else{
+							pwd1Span.html('* 确认密码输入正确！');
+							pwd1Span.css({'color':'green'});
+						}
+					}
+					
+				})
+				// 重置按钮点击事件
+				$('#reset').click(function(){
+					isChecked.prop({'checked':'false'});
+					checkSpan.html('');
+					name.val('');
+					nameSpan.html('');
+					pwd.val('');
+					pwdSpan.html('');
+					pwd1.val('');
+					pwd1Span.html('');
+				})
+				// 提交按钮点击事件
+				$('#submit').click(function(){
+					if(checkSpan.css('color') === 'rgb(0, 128, 0)' && nameSpan.css('color') === 'rgb(0, 128, 0)' && pwdSpan.css('color') === 'rgb(0, 128, 0)' && pwd1Span.css('color') === 'rgb(0, 128, 0)'){
+						// 待写后端接口请求-------------------
+						layer.alert('信息填写成功，完成注册！', {
+						    skin: 'layui-layer-lan'
+						    ,closeBtn: 0
+						    ,anim: 4 
+						  },function(){
+							  window.open('index.html','_self')
+						  });     
+					}else{
+						layer.alert('信息填写失败，不能完成注册！', {
+						    skin: 'layui-layer-lan'
+						    ,closeBtn: 0
+						    ,anim: 4 
+						  });              
+					}
+					
+				})
 			})
 		</script>
 	</body>
