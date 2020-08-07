@@ -8,7 +8,7 @@
 		<script type="text/javascript" src="js/banner.js"></script>
 	</head>
 	<body>
-		<header style="background:rgb(41, 50, 64);">
+		<header style="background:rgb(41, 50, 64);" id="header">
 			<div class="inner w">
 				<ul class="o">
 					<li class="l" style="font-size:24px;">136 4789 2548</li>
@@ -95,5 +95,37 @@
 				</ul>
 			</div>
 		</footer>
+		<div id="backTop">返回顶部</div>
+		
+		<script src="./js/jquery-1.8.3.min.js"></script>
+		<script>
+		 $(function(){
+			 // 添加吸顶菜单
+			var header = $('#header');
+			var backBtn = $('#backTop');
+			$(document).scroll(function(){
+				var h = $(this).scrollTop();
+				if(h > 0){
+					header.css({'position':'fixed','top':'0px','z-index':'999'})
+					backBtn.css({'display':'block'})
+				}else{
+					header.css({'position':'static','top':'0px'})
+					backBtn.css({'display':'none'})
+				}
+			})
+			// 返回顶部操作
+			backBtn.click(function(){
+				var top = Number($(document).scrollTop())
+				var timeId = setInterval(function(){
+					if(top > 0){
+						top -= 5
+						$(document).scrollTop(top)
+					}else{
+						clearInterval(timeId)
+					}
+				},5)
+			})
+		  });
+		</script>
 	</body>
 </html>

@@ -1,5 +1,5 @@
 * { padding: 0; margin: 0; list-style: none; box-sizing: border-box; }
-body { perspective: 400px; font-family:微软雅黑;}
+body { /* perspective: 400px; */ font-family:微软雅黑;}
 .w { width: 1200px; margin: 0 auto; }
 .l { float: left; }
 .r { float: right; }
@@ -103,3 +103,24 @@ footer li p { font-size: 18px; line-height: 110px; }
        margin: 0 6px; }
 .product ol a:hover { color: #72a5d7; background-color: #188ad7; }
 .product ol { text-align: center; margin: 30px auto 20px; }
+#backTop{
+	width:80px;
+	height:40px;
+	background-color:deepskyblue;
+	color:white;
+	text-align:center;
+	line-height:40px;
+	position:fixed;
+	bottom:0px;
+	right:0px;
+	font-size:12px;
+	cursor:pointer;
+	transition:all 0.8s;
+	display:none;
+}
+#backTop:hover{
+	background-color:dodgerblue;
+}
+a{
+	transition:all 0.8s;
+}
