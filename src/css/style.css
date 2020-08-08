@@ -12,6 +12,7 @@ body { /* perspective: 400px; */ font-family:微软雅黑;}
 .b-img a{ display:block; height:681px; float:left;}
 .b-list{ height:50px; padding-top:600px; position:relative; margin:0 auto;z-index:1;}
 .b-list span{ display:block;cursor:pointer; width:14px; height:14px; border-radius:50%; border:3px solid #3eb5f1; float:left; margin:0 5px; _margin:0 3px;}
+.b-list span:hover{background-color:red;}
 .b-list .spcss{border:3px solid #0688f1;}
 .bar-left{ position:absolute; z-index:1; display:block; width:100px; height:100%; left:0px; background:none; top:0px; }
 .bar-right{ position:absolute;z-index:1; display:block; width:100px; height:100%; right:0px; background:none; top:0px; }
@@ -106,7 +107,7 @@ footer li p { font-size: 18px; line-height: 110px; }
 #backTop{
 	width:80px;
 	height:40px;
-	background-color:deepskyblue;
+	background-color:rgba(0,0,0,.8);
 	color:white;
 	text-align:center;
 	line-height:40px;
@@ -119,8 +120,8 @@ footer li p { font-size: 18px; line-height: 110px; }
 	display:none;
 }
 #backTop:hover{
-	background-color:dodgerblue;
+	background-color:black;
 }
 a{
-	transition:all 0.8s;
+	transition:all 0.5s;
 }
